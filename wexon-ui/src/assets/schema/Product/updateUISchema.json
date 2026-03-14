@@ -1,0 +1,40 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/category",
+          "options": {
+            "control": "enum",
+            "variant": "autoComplete",
+            "enumOptions": [
+              { "label": "Potato", "value": "POTATO" },
+              { "label": "Leno Bag", "value": "LENO_BAG" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productName"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/description",
+      "options": {
+        "variant": "textarea"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/isActive",
+      "options": {
+        "variant": "switch"
+      }
+    }
+  ]
+}

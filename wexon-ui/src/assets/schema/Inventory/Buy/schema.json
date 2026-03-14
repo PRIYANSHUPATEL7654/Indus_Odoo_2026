@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "title": "Receipt (Incoming Stock)",
+  "properties": {
+    "transactionNature": {
+      "type": "string",
+      "const": "BUY",
+      "default": "BUY"
+    },
+    "transactionDate": {
+      "type": "string",
+      "title": "Transaction Date",
+      "format": "date",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select transaction date",
+        "minLength": "Transaction date is required"
+      }
+    },
+    "warehouseId": {
+      "type": "string",
+      "title": "Warehouse",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select warehouse",
+        "minLength": "Warehouse is required"
+      }
+    },
+    "locationId": {
+      "type": "string",
+      "title": "Location (Optional)"
+    },
+    "productId": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select product",
+        "minLength": "Product is required"
+      }
+    },
+    "affectsWarehouseQuantity": {
+      "type": "boolean",
+      "title": "Affects Warehouse Quantity",
+      "default": true
+    },
+    "quantity": {
+      "type": "number",
+      "title": "Quantity",
+      "exclusiveMinimum": 0,
+      "errorMessage": {
+        "required": "Enter quantity",
+        "exclusiveMinimum": "Quantity must be greater than 0"
+      }
+    },
+    "bagQuantity": {
+      "type": "integer",
+      "title": "Bag Quantity",
+      "minimum": 0,
+      "errorMessage": {
+        "minimum": "Bag quantity cannot be negative"
+      }
+    },
+    "unitPrice": {
+      "type": "number",
+      "title": "Purchase Rate",
+      "minimum": 0,
+      "errorMessage": {
+        "required": "Enter purchase rate",
+        "minimum": "Purchase rate must be zero or greater"
+      }
+    },
+    "partyType": {
+      "type": "string",
+      "title": "Party Type",
+      "const": "VENDOR",
+      "default": "VENDOR",
+      "enum": ["VENDOR"],
+      "errorMessage": {
+        "required": "Select party type",
+        "enum": "Party type must be Vendor"
+      }
+    },
+    "partyId": {
+      "type": "string",
+      "title": "Party",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select vendor",
+        "minLength": "Party is required"
+      }
+    },
+    "vehicleNumber": {
+      "type": "string",
+      "title": "Vehicle Number",
+      "maxLength": 20,
+      "errorMessage": {
+        "maxLength": "Vehicle number must not exceed 20 characters"
+      }
+    },
+    "remarks": {
+      "type": "string",
+      "title": "Remarks",
+      "maxLength": 500,
+      "errorMessage": {
+        "maxLength": "Remarks must not exceed 500 characters"
+      }
+    }
+  },
+  "required": [
+    "transactionNature",
+    "transactionDate",
+    "warehouseId",
+    "affectsWarehouseQuantity",
+    "productId",
+    "quantity",
+    "unitPrice",
+    "partyType",
+    "partyId"
+  ]
+}

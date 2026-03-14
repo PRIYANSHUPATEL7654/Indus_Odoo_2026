@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "required": ["grossQuantity", "measurementUnit", "netUnitPrice","vehicleNumber"],
+  "properties": {
+    "vehicleNumber": {
+      "type": "string",
+      "errorMessage": {
+        "type": "Vehicle number must be a valid text value"
+      }
+    },
+    "grossQuantity": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "errorMessage": {
+        "type": "Gross quantity must be a number",
+        "minimum": "Gross quantity cannot be negative"
+      }
+    },
+    "perBagLessQuantity": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "errorMessage": {
+        "type": "Per bag less quantity must be a number",
+        "minimum": "Per bag less quantity cannot be negative"
+      }
+    },
+    "debitNoteQuantity": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "errorMessage": {
+        "type": "Debit note quantity must be a number",
+        "minimum": "Debit note quantity cannot be negative"
+      }
+    },
+    "measurementUnit": {
+      "type": "string",
+      "minLength": 1,
+      "default": "KG",
+      "errorMessage": {
+        "type": "Measurement unit must be a text value",
+        "minLength": "Measurement unit is required"
+      }
+    },
+    "bagQuantity": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "errorMessage": {
+        "type": "Bag quantity must be an integer",
+        "minimum": "Bag quantity cannot be negative"
+      }
+    },
+    "netQuantity": {
+      "type": "number",
+      "minimum": 0,
+      "errorMessage": {
+        "type": "Net quantity must be a number",
+        "minimum": "Net quantity cannot be negative"
+      }
+    },
+    "netUnitPrice": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "errorMessage": {
+        "type": "Net unit price must be a number",
+        "minimum": "Net unit price cannot be negative"
+      }
+    },
+    "remarks": {
+      "type": "string",
+      "maxLength": 500,
+      "errorMessage": {
+        "maxLength": "Remarks cannot exceed 500 characters"
+      }
+    }
+  },
+  "errorMessage": {
+    "required": {
+      "grossQuantity": "Gross quantity is required",
+      "measurementUnit": "Measurement unit is required",
+      "netUnitPrice": "Net unit price is required"
+    }
+  }
+}

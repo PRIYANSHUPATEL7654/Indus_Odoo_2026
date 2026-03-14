@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "title": "Delivery Order (Outgoing Stock)",
+  "properties": {
+    "transactionNature": {
+      "type": "string",
+      "const": "SELL",
+      "default": "SELL"
+    },
+    "transactionDate": {
+      "type": "string",
+      "title": "Transaction Date",
+      "format": "date",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select transaction date",
+        "minLength": "Transaction date is required"
+      }
+    },
+    "productId": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select product",
+        "minLength": "Product is required"
+      }
+    },
+    "batchNo": {
+      "type": "string",
+      "title": "Batch Number",
+      "minLength": 1,
+      "errorMessage": {
+        "minLength": "Batch number cannot be empty"
+      }
+    },
+    "quantity": {
+      "type": "number",
+      "title": "Quantity",
+      "exclusiveMinimum": 0,
+      "errorMessage": {
+        "required": "Enter quantity",
+        "exclusiveMinimum": "Quantity must be greater than 0"
+      }
+    },
+    "bagQuantity": {
+      "type": "integer",
+      "title": "Bag Quantity",
+      "minimum": 0,
+      "errorMessage": {
+        "minimum": "Bag quantity cannot be negative"
+      }
+    },
+    "unitPrice": {
+      "type": "number",
+      "title": "Sale Rate",
+      "minimum": 0,
+      "errorMessage": {
+        "required": "Enter sale rate",
+        "minimum": "Sale rate must be zero or greater"
+      }
+    },
+    "partyType": {
+      "type": "string",
+      "title": "Party Type",
+      "const": "VENDOR",
+      "default": "VENDOR",
+      "enum": ["VENDOR"],
+      "errorMessage": {
+        "required": "Select party type",
+        "enum": "Party type must be Vendor"
+      }
+    },
+    "partyId": {
+      "type": "string",
+      "title": "Party",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select customer/vendor",
+        "minLength": "Party is required"
+      }
+    },
+    "vehicleNumber": {
+      "type": "string",
+      "title": "Vehicle Number",
+      "maxLength": 20,
+      "errorMessage": {
+        "maxLength": "Vehicle number must not exceed 20 characters"
+      }
+    },
+    "remarks": {
+      "type": "string",
+      "title": "Remarks",
+      "maxLength": 500,
+      "errorMessage": {
+        "maxLength": "Remarks must not exceed 500 characters"
+      }
+    }
+  },
+  "required": [
+    "transactionNature",
+    "transactionDate",
+    "productId",
+    "batchNo",
+    "quantity",
+    "unitPrice",
+    "partyType",
+    "partyId"
+  ]
+}

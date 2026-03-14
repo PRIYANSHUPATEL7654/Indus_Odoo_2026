@@ -1,0 +1,22 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/email",
+      "options": {
+        "variant": "email",
+        "showStartIcon": true
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/password",
+      "options": {
+        "variant": "password",
+        "showStartIcon": true,
+        "showPasswordShowAndHideButton": true
+      }
+    }
+  ]
+}

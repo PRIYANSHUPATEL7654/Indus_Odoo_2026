@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "title": "Internal Transfer",
+  "properties": {
+    "transactionNature": {
+      "type": "string",
+      "const": "TRANSFER",
+      "default": "TRANSFER"
+    },
+    "transactionDate": {
+      "type": "string",
+      "title": "Transaction Date",
+      "format": "date",
+      "minLength": 1
+    },
+    "productId": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1
+    },
+    "batchNo": {
+      "type": "string",
+      "title": "Source Batch Number",
+      "minLength": 1
+    },
+    "warehouseId": {
+      "type": "string",
+      "title": "Destination Warehouse",
+      "minLength": 1
+    },
+    "quantity": {
+      "type": "number",
+      "title": "Quantity",
+      "exclusiveMinimum": 0
+    },
+    "remarks": {
+      "type": "string",
+      "title": "Remarks",
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "transactionNature",
+    "transactionDate",
+    "productId",
+    "batchNo",
+    "warehouseId",
+    "quantity"
+  ]
+}
+

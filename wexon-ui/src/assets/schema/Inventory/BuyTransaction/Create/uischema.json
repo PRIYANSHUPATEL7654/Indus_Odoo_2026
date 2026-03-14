@@ -1,0 +1,97 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/transactionDate"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productId",
+      "label": "Product",
+      "options": {
+        "format": "entityCommand",
+        "entity": "products",
+        "placeholder": "Product"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/affectsWarehouseQuantity",
+          "label": "Affects Warehouse Stock?",
+          "options": {
+            "variant": "radioGroup"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/warehouseId",
+          "label": "Warehouse",
+          "options": {
+            "format": "entityCommand",
+            "entity": "warehouses",
+            "placeholder": "Select warehouse"
+          },
+          "rule": {
+            "effect": "ENABLE",
+            "condition": {
+              "scope": "#/properties/affectsWarehouseQuantity",
+              "schema": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyType",
+          "label": "Party Type",
+          "options": {
+            "control": "enum",
+            "variant": "autoComplete",
+            "enumOptions": [
+              { "label": "Vendor", "value": "VENDOR" }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Vendor",
+          "options": {
+            "format": "entityCommand",
+            "entity": "vendors",
+            "placeholder": "Select vendor"
+          },
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/partyType",
+              "schema": { "const": "VENDOR" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "label": "Remarks",
+      "options": {
+        "variant": "textarea",
+        "rows": 3
+      }
+    }
+  ]
+}

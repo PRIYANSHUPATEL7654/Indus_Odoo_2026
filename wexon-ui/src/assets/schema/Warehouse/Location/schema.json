@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "title": "Warehouse Location",
+  "properties": {
+    "warehouseId": {
+      "type": "string",
+      "title": "Warehouse",
+      "minLength": 1
+    },
+    "locationName": {
+      "type": "string",
+      "title": "Location Name",
+      "minLength": 2
+    },
+    "locationCode": {
+      "type": "string",
+      "title": "Location Code",
+      "minLength": 2
+    },
+    "isActive": {
+      "type": "boolean",
+      "title": "Active",
+      "default": true
+    }
+  },
+  "required": ["warehouseId", "locationName", "locationCode"]
+}
+

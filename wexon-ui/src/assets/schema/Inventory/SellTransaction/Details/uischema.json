@@ -1,0 +1,114 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/batchNo",
+      "label": "Batch Number",
+      "options": {
+        "placeholder": "Batch Number",
+        "format": "entityCommand",
+        "entity": "availableBatches"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/vehicleNumber",
+          "options": {
+            "placeholder": "Vehicle Number"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/measurementUnit",
+          "options": {
+            "placeholder": "Unit",
+            "readOnly": true
+            
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/grossQuantity",
+          "options": {
+            "variant": "measurement",
+            
+            "placeholder": "Gross Quantity"
+            
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bagQuantity",
+          "options": {
+            "placeholder": "Bag Quantity"
+            
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/perBagLessQuantity",
+          "options": {
+            "variant": "measurement",
+            
+            "placeholder": "Per Bag Less Quantity"
+            
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/debitNoteQuantity",
+          "options": {
+            "variant": "measurement",
+            
+            "placeholder": "Debit Note Quantity"
+            
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/netQuantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Net Quantity",
+            "readOnly": true
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/netUnitPrice",
+          "options": {
+            "variant": "currency",
+            "placeholder": "Net Unit Price"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "options": {
+        "variant": "textarea",
+        "placeholder": "Remarks"
+      }
+    }
+  ]
+}

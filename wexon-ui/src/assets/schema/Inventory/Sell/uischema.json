@@ -1,0 +1,87 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionDate",
+      "label": "Transaction Date"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productId",
+      "label": "Product",
+      "options": {
+        "format": "entityCommand",
+        "entity": "products",
+        "placeholder": "Select product"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/batchNo",
+      "label": "Batch Number",
+      "options": {
+        "format": "entityCommand",
+        "entity": "availableBatches",
+        "placeholder": "Select Batch Number"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Enter quantity"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/unitPrice",
+          "label": "Sale Rate",
+          "options": {
+            "variant": "currency"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bagQuantity",
+          "label": "Bag Quantity",
+          "options": {
+            "placeholder": "Number of bags"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Customer (Vendor)",
+          "options": {
+            "format": "entityCommand",
+            "entity": "vendors",
+            "placeholder": "Select customer"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/vehicleNumber",
+      "label": "Vehicle Number"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "label": "Remarks",
+      "options": {
+        "variant": "textarea"
+      }
+    }
+  ]
+}

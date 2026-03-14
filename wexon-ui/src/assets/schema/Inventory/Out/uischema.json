@@ -1,0 +1,126 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/batchNo",
+      "label": "Batch Number",
+      "options": {
+        "placeholder": "Batch Number",
+        "format": "entityCommand",
+        "entity": "availableBatches"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/inventoryType",
+          "options": {
+            "control": "enum",
+            "variant": "radioGroup",
+            "showDescription": false,
+            "enumOptions": [
+              {
+                "label": "Regular",
+                "value": "REGULAR",
+                "description": "Standard transaction with no special conditions"
+              },
+              {
+                "label": "Rent",
+                "value": "RENT",
+                "description": "Transaction related to rented goods or services"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/inventoryTransactionType",
+          "options": {
+            "control": "enum",
+            "variant": "autoComplete",
+            "enableSearch": true,
+            "enumOptions": [
+              {
+                "label": "Out Stock",
+                "value": "OUTWARD"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Enter Quantity (Kg)"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bagQuantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Number of Bags"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/unitPrice",
+          "options": {
+            "variant": "currency"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyType",
+          "options": {
+            "control": "enum",
+            "variant": "radioGroup",
+            "enumOptions": [
+              { "label": "Vendor", "value": "VENDOR" }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Vendor",
+          "options": {
+            "placeholder": "Vendor",
+            "format": "entityCommand",
+            "entity": "vendors"
+          },
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/partyType",
+              "schema": {
+                "const": "VENDOR"
+              }
+            }
+          }
+        },
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "options": {
+        "format": "textarea"
+      }
+    }
+  ]
+}

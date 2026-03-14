@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "sku": {
+      "type": "string",
+      "title": "SKU",
+      "minLength": 1,
+      "maxLength": 50,
+      "pattern": "^[A-Z0-9-_]+$",
+      "errorMessage": {
+        "minLength": "SKU is required",
+        "maxLength": "SKU must not exceed 50 characters",
+        "pattern": "SKU can contain only uppercase letters, numbers, hyphens, and underscores"
+      }
+    },
+    "productName": {
+      "type": "string",
+      "title": "Product Name",
+      "minLength": 2,
+      "maxLength": 120,
+      "errorMessage": {
+        "minLength": "Product name must be at least 2 characters",
+        "maxLength": "Product name must not exceed 120 characters"
+      }
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "maxLength": 500,
+      "errorMessage": {
+        "maxLength": "Description must not exceed 500 characters"
+      }
+    },
+    "category": {
+      "type": "string",
+      "title": "Product Category"
+    },
+    "baseUnit": {
+      "type": "string",
+      "minLength": 1,
+      "errorMessage": {
+        "minLength": "Base unit is required"
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "title": "Active",
+      "default": true
+    }
+  },
+  "required": ["sku", "productName", "category"]
+}

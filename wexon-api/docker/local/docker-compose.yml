@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  wexon-api:
+    image: gradle:8.7-jdk21
+    container_name: wexon-api
+    depends_on:
+      - wexon-db
+    volumes:
+      - ../../:/app
+      - gradle-cache:/root/.gradle
+    working_dir: /app
+    command: ./gradlew bootRun
+    ports:
+      - "8083:8083"
+      - "5005:5005"
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+
+  wexon-db:
+    image: mongo:6.0
+    container_name: wexon-db
+    ports:
+      - "29017:27017"
+    volumes:
+      - wexon-db-data:/data/db
+
+volumes:
+  wexon-db-data:
+  gradle-cache:

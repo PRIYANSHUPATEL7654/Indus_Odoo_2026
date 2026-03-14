@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "required": [
+    "transactionNature",
+    "transactionDate",
+    "items"
+  ],
+  "properties": {
+    "transactionNature": {
+      "type": "string",
+      "title": "Transaction",
+      "errorMessage": {
+        "required": "Select transaction nature"
+      }
+    },
+    "transactionDate": {
+      "type": "string",
+      "format": "date",
+      "title": "Transaction Date",
+      "errorMessage": {
+        "required": "Select transaction date"
+      }
+    },
+    "partyType": {
+      "type": "string",
+      "title": "Customer Category",
+      "errorMessage": {
+        "required": "Select Customer Category"
+      }
+    },
+    "partyId": {
+      "type": "string",
+      "title": "Party",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select party",
+        "minLength": "Party is required"
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "vehicleNumber": {
+            "type": "string",
+            "errorMessage": {
+              "type": "Vehicle number must be a valid text value"
+            }
+          },
+          "grossQuantity": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0,
+            "errorMessage": {
+              "type": "Gross quantity must be a number",
+              "minimum": "Gross quantity cannot be negative"
+            }
+          },
+          "perBagLessQuantity": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0,
+            "errorMessage": {
+              "type": "Per bag less quantity must be a number",
+              "minimum": "Per bag less quantity cannot be negative"
+            }
+          },
+          "debitNoteQuantity": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0,
+            "errorMessage": {
+              "type": "Debit note quantity must be a number",
+              "minimum": "Debit note quantity cannot be negative"
+            }
+          },
+          "bagQuantity": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "errorMessage": {
+              "type": "Bag quantity must be an integer",
+              "minimum": "Bag quantity cannot be negative"
+            }
+          },
+          "netQuantity": {
+            "type": "number",
+            "minimum": 0,
+            "errorMessage": {
+              "type": "Net quantity must be a number",
+              "minimum": "Net quantity cannot be negative"
+            }
+          },
+          "netUnitPrice": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0,
+            "errorMessage": {
+              "type": "Net unit price must be a number",
+              "minimum": "Net unit price cannot be negative"
+            }
+          }
+        },
+        "required": ["product"]
+      }
+    }
+  }
+}

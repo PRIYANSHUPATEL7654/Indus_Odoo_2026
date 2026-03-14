@@ -1,0 +1,61 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/bLessWeight",
+          "options": {
+            "variant": "measurement",
+            "unit": "Kg",
+            "placeholder": "Bag Less Weight",
+            "showLabel": false
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/dNotWeight",
+          "options": {
+            "variant": "measurement",
+            "unit": "Kg",
+            "placeholder": "Debit Note Weight",
+            "showLabel": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/netUnitPrice",
+          "options": {
+            "variant": "currency",
+            "placeholder": "Per Unit Price",
+            "showLabel": false
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/otherCharges",
+          "options": {
+            "placeholder": "Other Charges",
+            "variant": "currency",
+            "showLabel": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "options": {
+        "showLabel": false,
+        "variant": "textarea"
+      }
+    }
+  ]
+}

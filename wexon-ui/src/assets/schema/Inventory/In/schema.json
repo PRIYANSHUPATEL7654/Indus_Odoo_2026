@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "batchNo": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "vehicleNumber": {
+      "type": "string"
+    },
+    "unitPrice": {
+      "type": "integer"
+    },
+    "inventoryType": {
+      "type": "string"
+    },
+    "inventoryTransactionType": {
+      "type": "string"
+    },
+    "partyId": {
+      "type": "string"
+    },
+    "partyType": {
+      "type": "string"
+    },
+    "warehouseId": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "bagQuantity": {
+      "type": "integer"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "remarks": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "productId",
+    "vehicleNumber",
+    "unitPrice",
+    "inventoryType",
+    "inventoryTransactionType",
+    "partyId",
+    "partyType",
+    "warehouseId",
+    "quantity",
+    "bagQuantity"
+  ],
+
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "inventoryTransactionType": {
+            "const": "INWARD"
+          }
+        }
+      },
+      "then": {
+        "required": ["batchNo"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "inventoryType": {
+            "const": "RENT"
+          }
+        }
+      },
+      "then": {
+        "required": ["startDate"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/transactionNature",
+          "options": {
+            "placeholder": "Select Transaction",
+            "control": "enum",
+            "variant": "autoComplete",
+            "showDescription": true,
+            "enumOptions": [
+              {
+                "label": "Buy",
+                "value": "BUY",
+                "description": "Stock inward from supplier or farmer into warehouse"
+              },
+              {
+                "label": "Sell",
+                "value": "SELL",
+                "description": "Stock outward from warehouse to customer or supplier"
+              },
+              {
+                "label": "Transfer",
+                "value": "TRANSFER",
+                "disabled": true,
+                "description": "Move stock between warehouses or locations"
+              },
+              {
+                "label": "Damage",
+                "value": "DAMAGE",
+                "disabled": true,
+                "description": "Record damaged or unusable stock"
+              },
+              {
+                "label": "Adjustment",
+                "value": "ADJUST",
+                "disabled": true,
+                "description": "Manual stock correction due to variance or audit"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/transactionDate"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyType",
+          "label": "Customer Category",
+          "options": {
+            "placeholder": "Select Customer Category",
+            "control": "enum",
+            "variant": "autoComplete",
+            "enumOptions": [
+              { "label": "Vendor", "value": "VENDOR" }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Vendor",
+          "options": {
+            "format": "entityCommand",
+            "entity": "vendors",
+            "placeholder": "Vendor"
+          },
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/partyType",
+              "schema": { "const": "VENDOR" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ArrayLayout",
+      "scope": "#/properties/items",
+      "label": "Inventory Details",
+      "options": {
+        "description": "Add inventory items for this transaction.",
+        "showLabel": true,
+        "detail": {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/vehicleNumber",
+                  "options": {
+                    "placeholder": "Vehicle Number"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/grossQuantity",
+                  "options": {
+                    "variant": "measurement",
+                    "placeholder": "Gross Quantity"
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/bagQuantity",
+                  "options": {
+                    "placeholder": "Bag Quantity"
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/netUnitPrice",
+                  "options": {
+                    "variant": "currency",
+                    "placeholder": "Net Unit Price"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/perBagLessQuantity",
+                  "options": {
+                    "variant": "measurement",
+                    "placeholder": "Per Bag Less Quantity"
+
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/debitNoteQuantity",
+                  "options": {
+                    "variant": "measurement",
+                    "placeholder": "Debit Note Quantity"
+
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/netQuantity",
+                  "options": {
+                    "variant": "measurement",
+                    "placeholder": "Net Quantity",
+                    "readOnly": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

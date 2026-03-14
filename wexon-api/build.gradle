@@ -1,0 +1,67 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.6'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.wexon.software'
+version = '1.0.0'
+description = 'Wexon Software Backend API'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+bootJar {
+    archiveFileName = "wexon-api.jar"
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // --- Spring Boot Core ---
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // --- MongoDB ---
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    // --- Mongock (MongoDB Migration Tool) ---
+    implementation 'io.mongock:mongock-springboot:5.3.2'
+    implementation 'io.mongock:mongodb-springdata-v4-driver:5.3.2'
+
+    // --- JWT ---
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+
+    // --- Lombok ---
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // --- Swagger / OpenAPI ---
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+
+    // --- Dev Tools (optional) ---
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // --- Testing ---
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // --- Twilio ---
+    implementation("com.twilio.sdk:twilio:11.0.2")
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

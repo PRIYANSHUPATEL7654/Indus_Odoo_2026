@@ -1,0 +1,81 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionDate",
+      "label": "Transaction Date"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productId",
+      "label": "Product",
+      "options": {
+        "format": "entityCommand",
+        "entity": "products",
+        "placeholder": "Select product"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionDirection",
+      "label": "Adjustment Type",
+      "options": {
+        "control": "enum",
+        "variant": "autoComplete",
+        "enumOptions": [
+          { "label": "Increase Stock (IN)", "value": "IN" },
+          { "label": "Decrease Stock (OUT)", "value": "OUT" }
+        ]
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/quantity",
+      "label": "Quantity",
+      "options": {
+        "variant": "measurement",
+        "placeholder": "Enter quantity"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/affectsWarehouseQuantity",
+          "label": "Update warehouse capacity?",
+          "options": {
+            "variant": "switch"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/warehouseId",
+          "label": "Warehouse",
+          "options": {
+            "format": "entityCommand",
+            "entity": "warehouses",
+            "placeholder": "Select warehouse"
+          },
+          "rule": {
+            "effect": "ENABLE",
+            "condition": {
+              "scope": "#/properties/affectsWarehouseQuantity",
+              "schema": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "label": "Remarks",
+      "options": {
+        "variant": "textarea"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,86 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/vendorName"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/companyName"
+        }
+      ]
+    },
+
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/mobileNumber",
+          "options": { "variant": "phone" }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email",
+          "options": { "variant": "email" }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/gstNumber"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/addressLine1"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/addressLine2"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/village"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/taluka"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/district"
+        }
+      ]
+    },
+
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/city"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/state"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pincode"
+        }
+      ]
+    }
+  ]
+}

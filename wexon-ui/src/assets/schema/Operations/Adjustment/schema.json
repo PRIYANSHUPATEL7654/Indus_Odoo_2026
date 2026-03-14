@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "title": "Inventory Adjustment",
+  "properties": {
+    "transactionNature": {
+      "type": "string",
+      "const": "ADJUSTMENT",
+      "default": "ADJUSTMENT"
+    },
+    "transactionDate": {
+      "type": "string",
+      "title": "Transaction Date",
+      "format": "date",
+      "minLength": 1
+    },
+    "productId": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1
+    },
+    "transactionDirection": {
+      "type": "string",
+      "title": "Adjustment Type",
+      "enum": ["IN", "OUT"]
+    },
+    "quantity": {
+      "type": "number",
+      "title": "Quantity",
+      "exclusiveMinimum": 0
+    },
+    "affectsWarehouseQuantity": {
+      "type": "boolean",
+      "title": "Affects Warehouse Capacity",
+      "default": true
+    },
+    "warehouseId": {
+      "type": "string",
+      "title": "Warehouse",
+      "minLength": 1
+    },
+    "remarks": {
+      "type": "string",
+      "title": "Remarks",
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "transactionNature",
+    "transactionDate",
+    "productId",
+    "transactionDirection",
+    "quantity"
+  ]
+}
+

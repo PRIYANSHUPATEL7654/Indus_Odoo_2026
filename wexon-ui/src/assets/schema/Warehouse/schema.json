@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseName": {
+      "type": "string",
+      "title": "Warehouse Name",
+      "minLength": 3,
+      "maxLength": 100,
+      "errorMessage": {
+        "required": "Enter warehouse name",
+        "minLength": "Warehouse name must be at least 3 characters",
+        "maxLength": "Warehouse name must not exceed 100 characters"
+      }
+    },
+    "ownerName": {
+      "type": "string",
+      "title": "Owner Name",
+      "minLength": 3,
+      "errorMessage": {
+        "required": "Enter owner name",
+        "minLength": "Owner name must be at least 3 characters"
+      }
+    },
+    "contactNumber": {
+      "type": "string",
+      "title": "Contact Number",
+      "pattern": "^[6-9][0-9]{9}$",
+      "errorMessage": {
+        "required": "Enter contact number",
+        "pattern": "Enter a valid 10-digit mobile number"
+      }
+    },
+    "addressLine1": {
+      "type": "string",
+      "title": "Address Line 1",
+      "minLength": 5,
+      "maxLength": 150,
+      "errorMessage": {
+        "required": "Enter address line 1",
+        "minLength": "Address must be at least 5 characters",
+        "maxLength": "Address must not exceed 150 characters"
+      }
+    },
+    "addressLine2": {
+      "type": "string",
+      "title": "Address Line 2"
+    },
+    "village": {
+      "type": "string",
+      "title": "Village",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter village name",
+        "minLength": "Village name must be at least 2 characters"
+      }
+    },
+    "taluka": {
+      "type": "string",
+      "title": "Taluka",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter taluka name",
+        "minLength": "Taluka name must be at least 2 characters"
+      }
+    },
+    "district": {
+      "type": "string",
+      "title": "District",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter district name",
+        "minLength": "District name must be at least 2 characters"
+      }
+    },
+    "city": {
+      "type": "string",
+      "title": "City"
+    },
+    "state": {
+      "type": "string",
+      "title": "State",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter state name",
+        "minLength": "State name must be at least 2 characters"
+      }
+    },
+    "pincode": {
+      "type": "string",
+      "title": "Pincode",
+      "pattern": "^[1-9][0-9]{5}$",
+      "errorMessage": {
+        "required": "Enter pincode",
+        "pattern": "Enter a valid 6-digit pincode"
+      }
+    },
+    "totalCapacity": {
+      "type": "number",
+      "title": "Total Capacity",
+      "minimum": 1,
+      "errorMessage": {
+        "required": "Enter total capacity",
+        "minimum": "Total capacity must be greater than 0"
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "title": "Status",
+      "default": true
+    }
+  },
+  "required": [
+    "warehouseName",
+    "totalCapacity",
+    "ownerName",
+    "contactNumber",
+    "village",
+    "taluka",
+    "district",
+    "state",
+    "pincode"
+  ]
+}

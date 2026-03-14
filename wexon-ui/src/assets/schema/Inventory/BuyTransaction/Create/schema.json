@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "title": "Create Transaction",
+  "properties": {
+    "transactionDate": {
+      "type": "string",
+      "format": "date",
+      "title": "Transaction Date",
+      "errorMessage": {
+        "required": "Select transaction date"
+      }
+    },
+    "transactionNature": {
+      "type": "string",
+      "title": "Transaction Type",
+      "const": "BUY",
+      "default": "BUY",
+      "errorMessage": {
+        "required": "Select transaction nature"
+      }
+    },
+    "productId": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select product",
+        "minLength": "Product is required"
+      }
+    },
+    "affectsWarehouseQuantity": {
+      "type": "boolean",
+      "title": "Affects Warehouse Quantity",
+      "default": true
+    },
+    "warehouseId": {
+      "type": "string",
+      "title": "Warehouse",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select warehouse",
+        "minLength": "Warehouse is required"
+      }
+    },
+    "partyType": {
+      "type": "string",
+      "title": "Party Type",
+      "errorMessage": {
+        "required": "Select party type"
+      }
+    },
+    "partyId": {
+      "type": "string",
+      "title": "Party",
+      "minLength": 1,
+      "errorMessage": {
+        "required": "Select party",
+        "minLength": "Party is required"
+      }
+    },
+    "remarks": {
+      "type": "string",
+      "title": "Remarks",
+      "maxLength": 500,
+      "errorMessage": {
+        "maxLength": "Remarks must not exceed 500 characters"
+      }
+    }
+  },
+  "required": [
+    "transactionDate",
+    "transactionNature",
+    "productId",
+    "affectsWarehouseQuantity"
+  ]
+}

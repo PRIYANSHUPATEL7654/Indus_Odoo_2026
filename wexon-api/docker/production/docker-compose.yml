@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/vhost:/etc/nginx/vhost.d
+      - ./nginx/html:/usr/share/nginx/html
+    restart: always
+    networks:
+      - web
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    environment:
+      NGINX_PROXY_CONTAINER: nginx-proxy
+      ACME_CA_URI: https://acme-v02.api.letsencrypt.org/directory
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs:rw
+      - ./nginx/vhost:/etc/nginx/vhost.d
+      - ./nginx/html:/usr/share/nginx/html
+    depends_on:
+      - nginx-proxy
+    restart: always
+    networks:
+      - web
+
+  wexon-api:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    container_name: wexon-api
+    environment:
+      VIRTUAL_HOST: api.wexon.in
+      LETSENCRYPT_HOST: api.wexon.in
+      LETSENCRYPT_EMAIL: vedantcoder44088@gmail.in
+      SPRING_PROFILES_ACTIVE: prod
+    depends_on:
+      - wexon-db
+    restart: always
+    networks:
+      - web
+
+  wexon-db:
+    image: mongo:6.0
+    container_name: wexon-db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: wexon
+#      MONGO_INITDB_ROOT_PASSWORD: wexon@123
+    volumes:
+      - wexon-db-data:/data/db
+    restart: always
+    networks:
+      - web
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_SERVER: wexon-db
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: wexon@1981
+      VIRTUAL_HOST: db.wexon.in
+    depends_on:
+      - wexon-db
+    restart: always
+    networks:
+      - web
+
+volumes:
+  wexon-db-data:
+
+networks:
+  web:
+    external: false

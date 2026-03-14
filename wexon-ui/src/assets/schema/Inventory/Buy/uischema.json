@@ -1,0 +1,119 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionDate",
+      "label": "Transaction Date"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productId",
+      "label": "Product",
+      "options": {
+        "format": "entityCommand",
+        "entity": "products",
+        "placeholder": "Select product"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Enter quantity"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/unitPrice",
+          "label": "Purchase Rate",
+          "options": {
+            "variant": "currency"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bagQuantity",
+          "label": "Bag Quantity",
+          "options": {
+            "placeholder": "Number of bags"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Supplier (Vendor)",
+          "options": {
+            "format": "entityCommand",
+            "entity": "vendors",
+            "placeholder": "Select supplier"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/affectsWarehouseQuantity",
+          "label": "Add this quantity to warehouse stock?",
+          "options": {
+            "variant": "switch"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/warehouseId",
+          "label": "Warehouse",
+          "options": {
+            "format": "entityCommand",
+            "entity": "warehouses",
+            "placeholder": "Select warehouse"
+          },
+          "rule": {
+            "effect": "ENABLE",
+            "condition": {
+              "scope": "#/properties/affectsWarehouseQuantity",
+              "schema": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/locationId",
+      "label": "Location (Optional)",
+      "options": {
+        "format": "entityCommand",
+        "entity": "locations",
+        "placeholder": "Select location"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/vehicleNumber",
+      "label": "Vehicle Number"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "label": "Remarks",
+      "options": {
+        "variant": "textarea"
+      }
+    }
+  ]
+}

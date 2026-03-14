@@ -1,0 +1,140 @@
+{
+  "type": "object",
+  "properties": {
+    "vendorName": {
+      "type": "string",
+      "title": "Vendor Name",
+      "minLength": 2,
+      "maxLength": 80,
+      "errorMessage": {
+        "required": "Enter vendor name",
+        "minLength": "Vendor name must be at least 2 characters",
+        "maxLength": "Vendor name must not exceed 80 characters"
+      }
+    },
+    "companyName": {
+      "type": "string",
+      "title": "Company Name",
+      "minLength": 2,
+      "maxLength": 120,
+      "errorMessage": {
+        "required": "Enter company name",
+        "minLength": "Company name must be at least 2 characters",
+        "maxLength": "Company name must not exceed 120 characters"
+      }
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "format": "email",
+      "maxLength": 120,
+      "errorMessage": {
+        "format": "Enter a valid email address",
+        "maxLength": "Email must not exceed 120 characters"
+      }
+    },
+    "mobileNumber": {
+      "type": "string",
+      "title": "Mobile Number",
+      "pattern": "^[6-9][0-9]{9}$",
+      "errorMessage": {
+        "required": "Enter mobile number",
+        "pattern": "Enter a valid 10-digit mobile number"
+      }
+    },
+    "gstNumber": {
+      "type": "string",
+      "title": "GST Number",
+      "maxLength": 20,
+      "errorMessage": {
+        "maxLength": "GST number must not exceed 20 characters"
+      }
+    },
+    "addressLine1": {
+      "type": "string",
+      "title": "Address Line 1",
+      "minLength": 5,
+      "maxLength": 150,
+      "errorMessage": {
+        "minLength": "Address must be at least 5 characters",
+        "maxLength": "Address must not exceed 150 characters"
+      }
+    },
+    "addressLine2": {
+      "type": "string",
+      "title": "Address Line 2",
+      "maxLength": 150,
+      "errorMessage": {
+        "maxLength": "Address must not exceed 150 characters"
+      }
+    },
+    "village": {
+      "type": "string",
+      "title": "Village",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter village name",
+        "minLength": "Village name must be at least 2 characters"
+      }
+    },
+    "taluka": {
+      "type": "string",
+      "title": "Taluka",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter taluka name",
+        "minLength": "Taluka name must be at least 2 characters"
+      }
+    },
+    "district": {
+      "type": "string",
+      "title": "District",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter district name",
+        "minLength": "District name must be at least 2 characters"
+      }
+    },
+    "city": {
+      "type": "string",
+      "title": "City",
+      "minLength": 2,
+      "errorMessage": {
+        "minLength": "City name must be at least 2 characters"
+      }
+    },
+    "state": {
+      "type": "string",
+      "title": "State",
+      "minLength": 2,
+      "errorMessage": {
+        "required": "Enter state name",
+        "minLength": "State name must be at least 2 characters"
+      }
+    },
+    "pincode": {
+      "type": "string",
+      "title": "Pincode",
+      "pattern": "^[1-9][0-9]{5}$",
+      "errorMessage": {
+        "required": "Enter pincode",
+        "pattern": "Enter a valid 6-digit pincode"
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "title": "Status",
+      "default": true
+    }
+  },
+  "required": [
+    "vendorName",
+    "companyName",
+    "mobileNumber",
+    "village",
+    "taluka",
+    "district",
+    "state",
+    "pincode"
+  ]
+}

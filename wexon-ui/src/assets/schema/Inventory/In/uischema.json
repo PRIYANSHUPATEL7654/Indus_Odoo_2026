@@ -1,0 +1,200 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/inventoryType",
+          "options": {
+            "control": "enum",
+            "variant": "radioGroup",
+            "showDescription": false,
+            "enumOptions": [
+              {
+                "label": "Regular",
+                "value": "REGULAR",
+                "description": "Standard transaction with no special conditions"
+              },
+              {
+                "label": "Rent",
+                "value": "RENT",
+                "description": "Transaction related to rented goods or services"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/inventoryTransactionType",
+          "options": {
+            "control": "enum",
+            "variant": "radioGroup",
+            "showDescription": false,
+            "enumOptions": [
+              {
+                "label": "New Stock",
+                "value": "INWARD_NEW_STOCK",
+                "description": "New inventory received for the first time and added to stock"
+              },
+              {
+                "label": "In Stock",
+                "value": "INWARD",
+                "description": "Inventory already in circulation being adjusted within stock"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/batchNo",
+      "label": "Batch Number",
+      "options": {
+        "placeholder": "Batch Number",
+        "format": "entityCommand",
+        "entity": "availableBatches"
+      },
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/inventoryTransactionType",
+          "schema": {
+            "const": "INWARD"
+          }
+        }
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/warehouseId",
+      "label": "Warehouses",
+      "options": {
+        "placeholder": "Warehouses",
+        "format": "entityCommand",
+        "entity": "warehouses"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Enter Quantity (Kg)"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bagQuantity",
+          "options": {
+            "variant": "measurement",
+            "placeholder": "Number of Bags"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/productId",
+          "label": "Product",
+          "options": {
+            "placeholder": "Product",
+            "format": "entityCommand",
+            "entity": "products"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/unitPrice",
+          "options": {
+            "format": "currency"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/partyType",
+          "options": {
+            "control": "enum",
+            "variant": "radioGroup",
+            "enumOptions": [
+              { "label": "Vendor", "value": "VENDOR" }
+            ]
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/partyId",
+          "label": "Vendor",
+          "options": {
+            "placeholder": "Vendor",
+            "format": "entityCommand",
+            "entity": "vendors"
+          },
+          "rule": {
+            "effect": "SHOW",
+            "condition": {
+              "scope": "#/properties/partyType",
+              "schema": {
+                "const": "VENDOR"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/inventoryType",
+          "schema": {
+            "const": "RENT"
+          }
+        }
+      },
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/startDate",
+          "options": {
+            "format": "date",
+            "placeholder": "Start date"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/endDate",
+          "options": {
+            "format": "date",
+            "placeholder": "End date"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/vehicleNumber"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "options": {
+        "format": "textarea"
+      }
+    }
+  ]
+}

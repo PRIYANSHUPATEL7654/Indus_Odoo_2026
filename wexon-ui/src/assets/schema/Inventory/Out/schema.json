@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "batchNo": {
+      "type": "string"
+    },
+    "vehicleNumber": {
+      "type": "string"
+    },
+    "unitPrice": {
+      "type": "integer"
+    },
+    "inventoryType": {
+      "type": "string"
+    },
+    "inventoryTransactionType": {
+      "type": "string"
+    },
+    "partyId": {
+      "type": "string"
+    },
+    "partyType": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "remarks": {
+      "type": "string"
+    },
+    "bagQuantity": {
+      "type": "integer"
+    }
+  }
+}

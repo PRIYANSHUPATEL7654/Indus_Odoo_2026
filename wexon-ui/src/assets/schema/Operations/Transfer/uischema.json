@@ -1,0 +1,58 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/transactionDate",
+      "label": "Transaction Date"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/productId",
+      "label": "Product",
+      "options": {
+        "format": "entityCommand",
+        "entity": "products",
+        "placeholder": "Select product"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/batchNo",
+      "label": "Source Batch Number",
+      "options": {
+        "format": "entityCommand",
+        "entity": "availableBatches",
+        "placeholder": "Select source batch"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/warehouseId",
+      "label": "Destination Warehouse",
+      "options": {
+        "format": "entityCommand",
+        "entity": "warehouses",
+        "placeholder": "Select destination warehouse"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/quantity",
+      "label": "Quantity",
+      "options": {
+        "variant": "measurement",
+        "placeholder": "Enter quantity"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/remarks",
+      "label": "Remarks",
+      "options": {
+        "variant": "textarea"
+      }
+    }
+  ]
+}
+

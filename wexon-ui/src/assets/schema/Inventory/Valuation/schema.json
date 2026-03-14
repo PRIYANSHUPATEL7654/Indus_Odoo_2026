@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": ["netUnitPrice"],
+  "properties": {
+    "bLessWeight": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "dNotWeight": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "otherCharges": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "netUnitPrice": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "remarks": {
+      "type": "string"
+    }
+  }
+}

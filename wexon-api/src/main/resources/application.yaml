@@ -1,0 +1,27 @@
+server:
+  port: 8083
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: wexon-api
+  data:
+    mongodb:
+#      uri: ${SPRING_DATA_MONGODB_URI}
+      uri: mongodb://localhost:27017/wexon-db-app
+      auto-index-creation: false
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  main:
+    allow-circular-references: true
+
+mongock:
+  enabled: true
+  migration-scan-package:
+    - com.wexon.software.wexon_api.migrations
+
+twilio:
+  account-sid: ${TWILIO_ACCOUNT_SID:}
+  auth-token: ${TWILIO_AUTH_TOKEN:}
+  outgoing-sms-number: ${TWILIO_OUTGOING_SMS_NUMBER:}

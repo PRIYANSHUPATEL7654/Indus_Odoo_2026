@@ -1,0 +1,80 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/warehouseName"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/totalCapacity",
+          "options": {
+            "variant": "measurement",
+            "unit": "Kg"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/ownerName"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/contactNumber",
+          "options": {
+            "format": "phone"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/addressLine1"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/addressLine2"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/village"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/taluka"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/district"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/city"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/state"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/pincode"
+        }
+      ]
+    }
+  ]
+}

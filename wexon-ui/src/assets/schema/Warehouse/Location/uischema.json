@@ -1,0 +1,32 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/warehouseId",
+      "label": "Warehouse",
+      "options": {
+        "format": "entityCommand",
+        "entity": "warehouses",
+        "placeholder": "Select warehouse"
+      }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/locationName",
+      "label": "Location Name"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/locationCode",
+      "label": "Location Code"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/isActive",
+      "label": "Active",
+      "options": { "variant": "switch" }
+    }
+  ]
+}
+
